@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.dark-theme{
+    --color-background: #212121;
+    --color-text: #fff;
+    --color-button: #333;
+    --color-button-hover: #444;
+    --color-detail: #F6C90E;
+}
+.white-theme{
+    --playernames-background: #212121;
+    --color-background: #fff;
+    --color-text: #000;
+    --color-button: #ccc;
+    --color-button-hover: #ddd;
+    --color-detail: #c70707;
+}
+body{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+h1{
+    color: var(--color-text);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+main #bar{
+    height: 4px;
+    width: 100%;
+    background-color: var(--color-text);
+}
+
+main .game-interface{
+    font-size: 35px;
+    display: grid;
+    grid-template-columns: 6rem 6rem 6rem;
+    grid-template-rows: 6rem 6rem 6rem;
+    cursor: pointer;
+    position:relative;
+}
+
+main .tile{
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .right-border{
+    border-right: 5px solid var(--color-text);
+}
+main .bottom-border{
+    border-bottom: 5px solid var(--color-text);
+}
+
+main .strike{
+    position: absolute;
+    background-color: var(--color-detail);
+}
+
+.strike-row-1{
+    width: 100%;
+    height: 4px;
+    top: 15%;
+}
+.strike-row-2{
+    width: 100%;
+    height: 4px;
+    top: 49%;
+}
+.strike-row-3{
+    width: 100%;
+    height: 4px;
+    top: 83%;
+}
+
+.strike-column-1{
+    height: 100%;
+    width: 4px;
+    left: 15%;
+}
+.strike-column-2{
+    height: 100%;
+    width: 4px;
+    left: 49%;
+}
+.strike-column-3{
+    height: 100%;
+    width: 4px;
+    left: 83%;
+}
+
+.strike-diagonal-1{
+    height: 4px;
+    width: 90%;
+    top: 50%;
+    left: 5%;
+    transform: skewY(45deg);
+}
+.strike-diagonal-2{
+    height: 4px;
+    width: 90%;
+    top: 50%;
+    left: 5%;
+    transform: skewY(-45deg);
+}
+
+main .game-over{
+    border: 3px solid var(--color-detail);
+    border-radius: 30px;
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-detail);
+}
+
+main .resetBtn{
+    border: none;
+    background-color: var(--color-background);
+    margin-top: 1.5rem;
+    font-size: 20px;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.x-hover:hover::after{
+    content:'x';
+    opacity: 0.4;
+}
+.o-hover:hover::after{
+    content:'O';
+    opacity: 0.4;
+}
+
+.playernames{
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position:fixed;
+    left: 2rem;
+    top: 3.5rem;
+    background-color: var(--playernames-background);
+}
+
+.playerdisplay{
+    border: none;
+    padding: 0.3rem;
+    border-radius: 10px;
+    text-align: center;
+}
+#playBtn{
+    margin: 0.3rem;
+    font-size: 20px;
+    border: none;
+    background-color:var(--color-detail);
+    color: #fff;
+    background-color: var(--playernames-background);
+}
+
+main .switchTheme{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    position: fixed;
+    right: 5rem;
+    height: 2rem;
+    width: auto;
+    padding: 0.4rem;
+    cursor: pointer;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-radius: 20px;
+}
+
+@media (max-width: 769px){
+    main .switchTheme{
+        position: fixed;
+        bottom: 2rem;
+        right: 1rem;
+    }
+    .playernames{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position:fixed;
+        top: auto;
+        left: 2rem;
+        bottom: 3rem;
+        
+    }
+}
